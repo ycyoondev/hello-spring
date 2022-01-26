@@ -9,5 +9,5 @@ public class HelloSpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HelloSpringApplication.class, args);
 	}
-
+	// 추후 service는 impl로 교체
 }
