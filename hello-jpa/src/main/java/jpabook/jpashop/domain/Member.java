@@ -23,4 +23,6 @@ public class Member {
 
     @OneToMany(mappedBy = "member") // order Table의 member field에 의한 맵핑됨 (읽기로 사용)
     private List<Order> orders = new ArrayList<>();
+
+
 }
