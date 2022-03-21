@@ -25,4 +25,27 @@ public class OrderItem {
 
     private int orderPrice; //주문가격
     private int count; //주문수량
+
+    // 생성메소드
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setOrderPrice(orderPrice);
+        orderItem.setCount(count);
+
+        item.removeStock(count);
+        return orderItem;
+    }
+
+    protected OrderItem() { // new 생성을 막는다
+    }
+
+    // 비지니스 로직
+    public void cancel() {
+        getItem().addStock(count); // 제고 수량 복원
+    }
+    // 조회 로직
+    public int getTotalPrice() {
+        return getOrderPrice() * getCount();
+    }
 }
