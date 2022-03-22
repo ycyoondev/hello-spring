@@ -78,7 +78,7 @@ public class OrderServiceTest {
 
         Assert.assertEquals("주문 상태 확인", OrderStatus.CANCEL, order.getStatus());
         Assert.assertEquals("재고가 잘 복구되었는지 확인", 10, book.getStockQuantity());
-        
+
     }
     private Book createBook() {
         Book book = new Book();
