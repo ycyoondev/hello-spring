@@ -59,8 +59,7 @@ public class OrderServiceTest {
 
         int orderCount = 20;
         Long orderId = orderService.order(member.getId(), book.getId(), orderCount);
-
-        fail("실패: 재고수량 예외가 발생해야함");
+        fail();
     }
 
     @Test
