@@ -7,7 +7,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none # create 경우 종료 후 table drop함
     properties:
       hibernate:
 #        sho_sql: true # System.out을 통해서 출력됨
