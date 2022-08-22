@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: my-first-name
+    name: my-first-name # 대문자로 유레카 이름이됨
 eureka:
   client:
     register-with-eureka: true
