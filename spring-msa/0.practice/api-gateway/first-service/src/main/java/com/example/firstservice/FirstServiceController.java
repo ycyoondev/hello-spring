@@ -21,4 +21,9 @@ public class FirstServiceController {
         log.info(header);
         return "Hello message" + header;
     }
+
+    @GetMapping("/check")
+    public String check() {
+        return "Hi, there. This is a message from First service";
+    }
 }
