@@ -1,25 +1,18 @@
 package com.example.user.controller;
 
+import com.example.user.service.UserService;
 import com.example.user.vo.Greeting;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.user.vo.RequestUser;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/")
 public class UserController {
 
-//    private final Environment env;
-//
-//    public UserController(Environment env) {
-//        this.env = env;
-//    }
-
+    private final UserService userService;
     private final Greeting greeting;
-
-    public UserController(Greeting greeting) {
-        this.greeting = greeting;
-    }
 
     @GetMapping("/hearth_check")
     public String status() {
@@ -29,5 +22,11 @@ public class UserController {
     @GetMapping("/welcome")
     public String welcome() {
         return greeting.getMessage();
+    }
+
+    @PostMapping("/users")
+    public String createUser(@RequestBody RequestUser user) {
+        userService.createUser(user.toUserDto());
+        return "Create user";
     }
 }

@@ -1,11 +1,15 @@
 package com.example.user.repository;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 public class UserEntity {
     @Id
@@ -16,4 +20,11 @@ public class UserEntity {
     private String userId;
     private String name;
     private String encryptedPwd;
+
+    public UserEntity(String email, String userId, String name, String encryptedPwd) {
+        this.email = email;
+        this.userId = userId;
+        this.name = name;
+        this.encryptedPwd = encryptedPwd;
+    }
 }
