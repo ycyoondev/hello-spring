@@ -1,6 +1,7 @@
 package com.example.user.dto;
 
 import com.example.user.repository.UserEntity;
+import com.example.user.vo.ResponseUser;
 import lombok.Data;
 
 import java.util.Date;
@@ -23,5 +24,9 @@ public class UserDto {
 
     public UserEntity toEntity() {
         return new UserEntity(email, userId, name, encryptedPwd);
+    }
+
+    public ResponseUser toResponseUser() {
+        return new ResponseUser(email, name, userId);
     }
 }

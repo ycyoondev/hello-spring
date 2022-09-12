@@ -1,9 +1,12 @@
 package com.example.user.controller;
 
+import com.example.user.dto.UserDto;
 import com.example.user.service.UserService;
 import com.example.user.vo.Greeting;
 import com.example.user.vo.RequestUser;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,8 +28,8 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public String createUser(@RequestBody RequestUser user) {
-        userService.createUser(user.toUserDto());
-        return "Create user";
+    public ResponseEntity createUser(@RequestBody RequestUser user) {
+        UserDto userDto = userService.createUser(user.toUserDto());
+        return ResponseEntity.status(HttpStatus.CREATED).body(userDto.toResponseUser());
     }
 }
