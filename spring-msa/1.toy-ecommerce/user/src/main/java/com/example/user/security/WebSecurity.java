@@ -16,7 +16,7 @@ public class WebSecurity {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable(); // csrf 무시
         http.authorizeRequests().antMatchers("/users/**").permitAll();
-
+        http.headers().frameOptions().disable();
         return http.build();
     }
 }
