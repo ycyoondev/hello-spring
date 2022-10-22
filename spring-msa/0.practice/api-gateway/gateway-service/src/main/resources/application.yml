@@ -19,23 +19,27 @@ spring:
           uri: lb://USER-SERVICE # Application name
           predicates:
             - Path=/user-service/**
-        - id: first-service
-          uri: lb://MY-FIRST-NAME
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE # Application name
           predicates:
-            - Path=/first-service/**
-          filters:
-            - CustomFilter
-        - id: second-service
-          uri: lb://MY-SECOND-NAME
-          predicates:
-            - Path=/second-service/**
-          filters:
-            - name: CustomFilter
-            - name: LoggingFilter
-              args:
-                baseMessage: Spring Logging Filter
-                preLogger: true
-                postLogger: true
+            - Path=/catalog-service/**
+#        - id: first-service
+#          uri: lb://MY-FIRST-NAME
+#          predicates:
+#            - Path=/first-service/**
+#          filters:
+#            - CustomFilter
+#        - id: second-service
+#          uri: lb://MY-SECOND-NAME
+#          predicates:
+#            - Path=/second-service/**
+#          filters:
+#            - name: CustomFilter
+#            - name: LoggingFilter
+#              args:
+#                baseMessage: Spring Logging Filter
+#                preLogger: true
+#                postLogger: true
 #      default-filters:
 #        - name: GlobalFilter
 #          args:
