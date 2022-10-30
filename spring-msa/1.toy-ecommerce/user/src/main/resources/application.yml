@@ -21,6 +21,7 @@ spring:
 logging:
   level:
     org.hibernate.type: trace
+    com.example.user: DEBUG
 
 eureka:
   instance:

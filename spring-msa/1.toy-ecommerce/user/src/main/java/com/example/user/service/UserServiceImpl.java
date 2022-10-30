@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.UUID;
 
 @Service
@@ -44,6 +43,17 @@ public class UserServiceImpl implements UserService{
     @Override
     public Iterable<UserEntity> getUserByAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public UserDto getUserDetailsByEmail(String email) {
+        UserEntity userEntity = userRepository.findByEmail(email);
+        return UserDto.builder()
+                .email(userEntity.getEmail())
+                .name(userEntity.getName())
+                .pwd(userEntity.getEncryptedPwd())
+                .userId(userEntity.getUserId())
+                .build();
     }
 
     @Override

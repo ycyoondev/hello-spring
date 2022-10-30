@@ -4,12 +4,14 @@ import com.example.user.repository.UserEntity;
 import com.example.user.vo.ResponseOrder;
 import com.example.user.vo.ResponseUser;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Builder
 @Data
 @AllArgsConstructor
 public class UserDto {
